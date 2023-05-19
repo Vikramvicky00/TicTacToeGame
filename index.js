@@ -52,6 +52,7 @@ function changeplayer(){
 }
 
 function  checkwin(){
+   let wi;
     let roundwon=false;
     for(let i=0;i<opts.length;i++){
         const ch=opts[i]
@@ -63,11 +64,16 @@ function  checkwin(){
     }
     if(a==b && b==c){
         roundwon=true;
+        wi=[ch[0],ch[1],ch[2]]
         break;
+        
     }
   } 
     if(roundwon){
         stat.textContent=`${currentplayer} wins`
+        for(let w of wi){
+            b[w].style.color="white"
+        }
         running=false;
 
     }
